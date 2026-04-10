@@ -46,3 +46,4 @@ The main interface acts as a multi-dashboard viewer, where you can tab between t
 1.  **Control Panel**: Simulate an administrator starting an event or calling an intermission.
 2.  **Food Court Signage**: Observe how the data updates live for patrons. Notice how the custom promotional widgets display during specific active states.
 3.  **Washroom Signage**: Watch how the system counts down in large formats to push patrons back to their seats.
+
