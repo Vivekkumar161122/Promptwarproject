@@ -1,0 +1,17 @@
+{
+  "name": "venuesync",
+  "version": "1.0.0",
+  "description": "Real-time event synchronization dashboard for digital signage in venues.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "npx serve ./"
+  },
+  "keywords": [
+    "digital-signage",
+    "dashboard",
+    "venue",
+    "sync"
+  ],
+  "author": "",
+  "license": "ISC"
+}

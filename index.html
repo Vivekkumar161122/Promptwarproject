@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenueSync - Real-time Event Updates</title>
+    <meta name="description" content="Dynamic event synchronization for sporting venues and cinemas.">
+    <!-- Google Fonts: Inter for modern, clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon"></span> Venue<span class="highlight">Sync</span>
+            </div>
+            <div class="global-time" id="global-time">00:00:00</div>
+        </header>
+
+        <main class="dashboard">
+            <!-- View Selector -->
+            <nav class="view-selector">
+                <button class="view-btn active" data-view="admin">Control Panel</button>
+                <button class="view-btn" data-view="food-court">Food Court Signage</button>
+                <button class="view-btn" data-view="washroom">Washroom Signage</button>
+            </nav>
+
+            <!-- Admin View -->
+            <section class="view-panel active" id="view-admin">
+                <div class="glass-card admin-card">
+                    <h2>Event Controls</h2>
+                    <p class="subtitle">Manage the dynamic state of the current event/movie.</p>
+                    
+                    <div class="control-group">
+                        <label for="event-title">Event Title</label>
+                        <input type="text" id="event-title" value="Avengers: Endgame" placeholder="e.g. Finals Match">
+                    </div>
+
+                    <div class="control-actions">
+                        <button id="btn-start" class="btn btn-primary">Start Event</button>
+                        <button id="btn-intermission" class="btn btn-warning" disabled>Trigger Intermission (10m)</button>
+                        <button id="btn-resume" class="btn btn-success" disabled>Resume Event</button>
+                        <button id="btn-end" class="btn btn-danger" disabled>End Event</button>
+                    </div>
+
+                    <div class="system-status">
+                        <h3>System Status</h3>
+                        <div class="status-indicator">
+                            <span class="dot" id="admin-status-dot"></span>
+                            <span id="admin-status-text" class="status-text font-semibold">SCHEDULED</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Food Court View -->
+            <section class="view-panel signage-mode" id="view-food-court">
+                <div class="signage-container food-court">
+                    <div class="signage-header">
+                        <h1>Food Court Central</h1>
+                        <h2 id="fc-event-title">Avengers: Endgame</h2>
+                    </div>
+                    
+                    <div class="dynamic-widget glass-card" id="fc-status-widget">
+                        <div class="status-banner" id="fc-banner">
+                            <span class="pulse-ring"></span>
+                            <h3 id="fc-status-message">Event is scheduled to start soon</h3>
+                        </div>
+                        <div class="time-display" id="fc-time-display">
+                            <span class="time-value" id="fc-timer">--:--</span>
+                            <span class="time-label" id="fc-timer-label">Wait Time</span>
+                        </div>
+                    </div>
+
+                    <div class="promo-section">
+                        <div class="promo-card">
+                            <h3>Combo Offer</h3>
+                            <p>Get 20% off Popcorn & Soda during intermission!</p>
+                            <span class="promo-badge">Limited Time</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Washroom View -->
+            <section class="view-panel signage-mode" id="view-washroom">
+                <div class="signage-container washroom">
+                    <div class="minimal-header">
+                        <div class="icon">🚻</div>
+                        <h2>Zone B Restrooms</h2>
+                    </div>
+
+                    <div class="dynamic-widget glass-card minimal" id="wr-status-widget">
+                        <h3 id="wr-event-title" class="event-name">Avengers: Endgame</h3>
+                        <div class="status-indicator-large" id="wr-status-indicator">
+                            <h1 id="wr-main-message">Currently Playing</h1>
+                            <p id="wr-sub-message">Minimal queues. Return to your seat.</p>
+                        </div>
+                        
+                        <div class="urgent-timer hidden" id="wr-urgent-timer-container">
+                            <span class="urgent-label">Event Resumes In:</span>
+                            <span class="urgent-time" id="wr-timer">--:--</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="src/js/app.js"></script>
+</body>
+</html>
